@@ -32,6 +32,10 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Inject
     MainPresenter mainPresenter;
+
+    @Inject
+    MainPresenter mainPresenter2;
+
     @Inject
     boolean debug;
     private TextView tvMessage;
@@ -53,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         tvDebug.setText(String.valueOf(debug));
 
         mainPresenter.create();
+        mainPresenter2.create();
 
     }
 

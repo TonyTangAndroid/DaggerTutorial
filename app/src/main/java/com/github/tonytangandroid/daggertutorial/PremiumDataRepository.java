@@ -4,10 +4,13 @@ import android.content.SharedPreferences;
 
 import javax.inject.Inject;
 
-public class PremiumDataRepository {
+import hugo.weaving.DebugLog;
+
+public class PremiumDataRepository implements PremiumRepository {
 
     private final SharedPreferences sharedPreferences;
 
+    @DebugLog
     @Inject
     public PremiumDataRepository(SharedPreferences sharedPreferences) {
         this.sharedPreferences = sharedPreferences;
