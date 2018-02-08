@@ -59,6 +59,8 @@ public class MainActivity extends AppCompatActivity implements MainView {
         mainPresenter.create();
         mainPresenter2.create();
 
+        startService(DemoService.constructIntent(this));
+
     }
 
     @Override

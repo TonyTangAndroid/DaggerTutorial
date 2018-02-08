@@ -17,7 +17,7 @@ import dagger.android.AndroidInjectionModule;
 @ApplicationScope
 @Component(modules = {ApplicationModule.class, SharedPreferenceModule.class, NamedAnnotationModule.class,
         DataProviderModule.class, DataBindModule.class,
-        AndroidInjectionModule.class, ActivityInjector.class})
+        AndroidInjectionModule.class, ActivityInjector.class, ServiceInjector.class})
 public interface ApplicationComponent {
 
     void inject(TutorialApplication app);
