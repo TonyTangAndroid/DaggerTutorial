@@ -1,38 +1,28 @@
 package com.github.tonytangandroid.daggertutorial.dagger;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.app.Application;
 
+import com.github.tonytangandroid.daggertutorial.TutorialApplication;
 import com.github.tonytangandroid.daggertutorial.dagger.module.ApplicationModule;
 import com.github.tonytangandroid.daggertutorial.dagger.module.NamedAnnotationModule;
 import com.github.tonytangandroid.daggertutorial.dagger.module.SharedPreferenceModule;
 
-import javax.inject.Named;
-
+import dagger.BindsInstance;
 import dagger.Component;
+import dagger.android.AndroidInjectionModule;
 
-@Component(modules = {ApplicationModule.class, SharedPreferenceModule.class, NamedAnnotationModule.class})
+@Component(modules = {ApplicationModule.class, SharedPreferenceModule.class, NamedAnnotationModule.class,
+        AndroidInjectionModule.class, ActivityInjector.class})
 public interface ApplicationComponent {
 
-    Context context();
+    void inject(TutorialApplication app);
 
-    SharedPreferences sharedPreferences();
+    @Component.Builder
+    interface Builder {
 
-    @Named("app_name_from_named_annotation")
-    String appName();
+        @BindsInstance
+        Builder application(Application application);
 
-    @Named("shared_preference_value")
-    String defaultSharedPreferenceValue();
-
-    String nameWithoutNamedAnnotation();
-
-    boolean debug();
-
-    @Named("premium_message")
-    String messageForPremium();
-
-    @Named("none_premium_message")
-    String messageForNonPremium();
-
-
+        ApplicationComponent build();
+    }
 }
