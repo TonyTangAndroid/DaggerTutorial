@@ -106,4 +106,28 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:text="Message for user:"
+            tools:ignore="HardcodedText"/>
+
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            tools:ignore="HardcodedText"/>
+
+    </LinearLayout>
+
 </LinearLayout>

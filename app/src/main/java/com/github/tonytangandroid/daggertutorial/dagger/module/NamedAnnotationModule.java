@@ -27,6 +27,18 @@ public class NamedAnnotationModule {
     }
 
 
+    @Named("premium_message")
+    @Provides
+    String messageForPremium() {
+        return "You are a premium user";
+    }
+
+    @Named("none_premium_message")
+    @Provides
+    String messageForNonPremium() {
+        return "You are not a premium user";
+    }
+
     @Provides
     @Named("shared_preference_value")
     String provideSharedPreferenceValue() {
