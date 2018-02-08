@@ -7,7 +7,6 @@ import android.widget.Toast;
 
 import javax.inject.Inject;
 
-import dagger.android.AndroidInjection;
 import timber.log.Timber;
 
 /**
@@ -22,7 +21,7 @@ public class QuickTileService extends TileService {
     @Override
     public void onCreate() {
         super.onCreate();
-        AndroidInjection.inject(this);
+        ((TutorialApplication) getApplication()).api24OrGreaterServiceInjector().inject(this);
     }
 
     @Override
