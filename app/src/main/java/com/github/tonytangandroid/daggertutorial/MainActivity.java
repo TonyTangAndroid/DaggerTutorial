@@ -9,7 +9,7 @@ import android.widget.TextView;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainView {
 
     @Inject
     Context injectedContext;
@@ -29,21 +29,35 @@ public class MainActivity extends AppCompatActivity {
     String nameWithoutAnnotation;
 
     @Inject
+    MainPresenter mainPresenter;
+    @Inject
     boolean debug;
+    private TextView tvMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((TutorialApplication) getApplication()).activityInjector().inject(this);
+        mainPresenter.init(this);
+
         setContentView(R.layout.activity_main);
+
         TextView tvAppName = findViewById(R.id.tv_app_name);
         TextView tvSharedPreference = findViewById(R.id.tv_shared_preferences);
         TextView tvNameWithoutNamedAnnotation = findViewById(R.id.tv_name_without_annotation);
+        tvMessage = findViewById(R.id.tv_message);
         TextView tvDebug = findViewById(R.id.tv_debug);
         tvAppName.setText(appName);
         tvSharedPreference.setText(sharedPreferenceValue);
         tvNameWithoutNamedAnnotation.setText(nameWithoutAnnotation);
         tvDebug.setText(String.valueOf(debug));
 
+        mainPresenter.create();
+
+    }
+
+    @Override
+    public void showMessage(String message) {
+        tvMessage.setText(message);
     }
 }

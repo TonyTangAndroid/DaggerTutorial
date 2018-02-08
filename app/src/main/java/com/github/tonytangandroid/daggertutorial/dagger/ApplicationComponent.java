@@ -28,4 +28,11 @@ public interface ApplicationComponent {
 
     boolean debug();
 
+    @Named("premium_message")
+    String messageForPremium();
+
+    @Named("none_premium_message")
+    String messageForNonPremium();
+
+
 }
