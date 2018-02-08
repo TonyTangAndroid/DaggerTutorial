@@ -8,8 +8,7 @@ public class MainPresenter {
     private MainView mainView;
 
     @Inject
-    public MainPresenter(PremiumDataRepository premiumDataRepository,
-                         GetMessageUseCase getMessageUseCase) {
+    public MainPresenter(GetMessageUseCase getMessageUseCase) {
         this.getMessageUseCase = getMessageUseCase;
     }
 
