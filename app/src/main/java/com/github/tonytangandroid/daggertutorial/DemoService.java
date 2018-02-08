@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
-import android.widget.Toast;
 
 import javax.inject.Inject;
 
@@ -25,7 +24,6 @@ public class DemoService extends Service {
     public void onCreate() {
         super.onCreate();
         AndroidInjection.inject(this);
-        Toast.makeText(this, "service toast :" + injectedStringValue, Toast.LENGTH_SHORT).show();
     }
 
     @Nullable
