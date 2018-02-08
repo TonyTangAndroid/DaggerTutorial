@@ -1,24 +1,30 @@
 package com.github.tonytangandroid.daggertutorial;
 
+import android.app.Activity;
 import android.app.Application;
 
-import com.github.tonytangandroid.daggertutorial.dagger.ActivityComponent;
-import com.github.tonytangandroid.daggertutorial.dagger.ApplicationComponent;
-import com.github.tonytangandroid.daggertutorial.dagger.DaggerActivityComponent;
 import com.github.tonytangandroid.daggertutorial.dagger.DaggerApplicationComponent;
-import com.github.tonytangandroid.daggertutorial.dagger.module.ApplicationModule;
 
-public class TutorialApplication extends Application {
+import javax.inject.Inject;
 
-    ApplicationComponent applicationComponent;
+import dagger.android.AndroidInjector;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.HasActivityInjector;
+
+public class TutorialApplication extends Application implements HasActivityInjector {
+
+    @Inject
+    DispatchingAndroidInjector<Activity> activityDispatchingAndroidInjector;
+
 
     @Override
     public void onCreate() {
         super.onCreate();
-        applicationComponent = DaggerApplicationComponent.builder().applicationModule(new ApplicationModule(this)).build();
+        DaggerApplicationComponent.builder().application(this).build().inject(this);
     }
 
-    public ActivityComponent activityInjector() {
-        return DaggerActivityComponent.builder().applicationComponent(applicationComponent).build();
+    @Override
+    public AndroidInjector<Activity> activityInjector() {
+        return activityDispatchingAndroidInjector;
     }
 }

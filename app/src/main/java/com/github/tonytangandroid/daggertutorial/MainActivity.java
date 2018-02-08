@@ -9,6 +9,8 @@ import android.widget.TextView;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import dagger.android.AndroidInjection;
+
 public class MainActivity extends AppCompatActivity implements MainView {
 
     @Inject
@@ -37,9 +39,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((TutorialApplication) getApplication()).activityInjector().inject(this);
-        mainPresenter.init(this);
-
+        AndroidInjection.inject(this);
         setContentView(R.layout.activity_main);
 
         TextView tvAppName = findViewById(R.id.tv_app_name);
