@@ -2,8 +2,8 @@ package com.github.tonytangandroid.daggertutorial.dagger;
 
 import android.app.Application;
 
+import com.github.tonytangandroid.daggertutorial.QuickTileService;
 import com.github.tonytangandroid.daggertutorial.TutorialApplication;
-import com.github.tonytangandroid.daggertutorial.dagger.api24.Api24OrGreaterServiceComponent;
 import com.github.tonytangandroid.daggertutorial.dagger.module.ApplicationModule;
 import com.github.tonytangandroid.daggertutorial.dagger.module.DataBindModule;
 import com.github.tonytangandroid.daggertutorial.dagger.module.DataProviderModule;
@@ -21,7 +21,7 @@ import dagger.android.AndroidInjectionModule;
         AndroidInjectionModule.class, ActivityInjector.class, ServiceInjector.class})
 public interface ApplicationComponent {
 
-    Api24OrGreaterServiceComponent api24OrGreaterServiceComponent();
+    QuickTileService.Api24OrGreaterServiceComponent api24OrGreaterServiceComponent();
 
     void inject(TutorialApplication app);
 

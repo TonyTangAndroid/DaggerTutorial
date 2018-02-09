@@ -1,5 +1,6 @@
 package com.github.tonytangandroid.daggertutorial;
 
+import android.app.Service;
 import android.os.Build;
 import android.service.quicksettings.TileService;
 import android.support.annotation.RequiresApi;
@@ -7,6 +8,11 @@ import android.widget.Toast;
 
 import javax.inject.Inject;
 
+import dagger.Module;
+import dagger.Subcomponent;
+import dagger.android.AndroidInjection;
+import dagger.android.ContributesAndroidInjector;
+import dagger.android.DispatchingAndroidInjector;
 import timber.log.Timber;
 
 /**
@@ -20,8 +26,8 @@ public class QuickTileService extends TileService {
 
     @Override
     public void onCreate() {
+        AndroidInjection.inject(this);
         super.onCreate();
-        ((TutorialApplication) getApplication()).api24OrGreaterServiceInjector().inject(this);
     }
 
     @Override
@@ -48,6 +54,22 @@ public class QuickTileService extends TileService {
     @Override
     public void onTileRemoved() {
         Timber.d("Tile removed");
+    }
+
+    @Subcomponent(modules = Api24OrGreaterServiceModule.class)
+    public interface Api24OrGreaterServiceComponent {
+
+        void inject(TutorialApplication app);
+
+        DispatchingAndroidInjector<Service> injector();
+    }
+
+    @Module
+    public abstract class Api24OrGreaterServiceModule {
+
+        @ContributesAndroidInjector()
+        abstract QuickTileService bindQuickTileService();
+
     }
 
 }

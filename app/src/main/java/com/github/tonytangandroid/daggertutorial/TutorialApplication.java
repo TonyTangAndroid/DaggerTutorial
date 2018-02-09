@@ -6,7 +6,6 @@ import android.app.Service;
 
 import com.github.tonytangandroid.daggertutorial.dagger.ApplicationComponent;
 import com.github.tonytangandroid.daggertutorial.dagger.DaggerApplicationComponent;
-import com.github.tonytangandroid.daggertutorial.dagger.api24.HasApi24OrGreaterServiceInjector;
 
 import javax.inject.Inject;
 
@@ -16,21 +15,32 @@ import dagger.android.HasActivityInjector;
 import dagger.android.HasServiceInjector;
 import timber.log.Timber;
 
-public class TutorialApplication extends Application implements HasActivityInjector, HasServiceInjector, HasApi24OrGreaterServiceInjector {
+import static android.os.Build.VERSION.SDK_INT;
+import static android.os.Build.VERSION_CODES.N;
+
+public class TutorialApplication extends Application implements HasActivityInjector, HasServiceInjector {
 
     @Inject
     DispatchingAndroidInjector<Activity> activityDispatchingAndroidInjector;
     @Inject
     DispatchingAndroidInjector<Service> serviceDispatchingAndroidInjector;
 
-    private ApplicationComponent applicationComponent;
 
     @Override
     public void onCreate() {
+        initDagger();
         super.onCreate();
-        applicationComponent = DaggerApplicationComponent.builder().application(this).build();
-        applicationComponent.inject(this);
         Timber.plant(new Timber.DebugTree());
+
+    }
+
+    private void initDagger() {
+        ApplicationComponent component = DaggerApplicationComponent.builder().application(this).build();
+        if (SDK_INT >= N) {
+            component.api24OrGreaterServiceComponent().inject(this);
+        } else {
+            component.inject(this);
+        }
     }
 
     @Override
@@ -43,8 +53,4 @@ public class TutorialApplication extends Application implements HasActivityInjec
         return serviceDispatchingAndroidInjector;
     }
 
-    @Override
-    public AndroidInjector<Service> api24OrGreaterServiceInjector() {
-        return applicationComponent.api24OrGreaterServiceComponent().injector();
-    }
 }
