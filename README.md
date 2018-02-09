@@ -95,3 +95,7 @@ https://github.com/TonyTangAndroid/DaggerTutorial/pull/10/files
 
 Fix the crash at app start on device with Android Api below 24 due to the TileService error. This could serve as an example to delay the preparation of initialization until the injected class is being called.
 
+####Part 10 : Optimize the service injector
+
+https://github.com/TonyTangAndroid/DaggerTutorial/pull/11/files
+Optimize the service injector 
