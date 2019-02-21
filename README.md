@@ -3,7 +3,7 @@ A Dagger Tutorial from easiest setup example to the most advance setup examples.
 
 The example has been broke into 9 parts with 9 branches and each part focuses on its primary purpose. And there has been 9 open pull requests which demonstrate the examples step by step. Each pull request is based on the previous commit. So if you want to learn Dagger from scratch, you could start from part_1_minu_setup which has only minimum code related to Dagger. Branch master has all the code including all parts.
 
-
+(Test 123)
 
 ####Part 1 : Minimum setup of Dagger. 
 https://github.com/TonyTangAndroid/DaggerTutorial/pull/1/files
