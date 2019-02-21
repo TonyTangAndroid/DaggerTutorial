@@ -5,13 +5,13 @@ The example has been broke into 9 parts with 9 branches and each part focuses on
 
 (Test 123 456)
 
-####Part 1 : Minimum setup of Dagger. 
+#### Part 1 : Minimum setup of Dagger.
 https://github.com/TonyTangAndroid/DaggerTutorial/pull/1/files
 Add a minimum setup of Dagger which injects a context in the activity to get the string.
 
 
 
-####Part 2 : Add SharedPreference inject example.
+#### Part 2 : Add SharedPreference inject example.
 https://github.com/TonyTangAndroid/DaggerTutorial/pull/2/files
 1, Add a shared preference module.
 2, Include the shared preference module in application component.
@@ -21,7 +21,7 @@ https://github.com/TonyTangAndroid/DaggerTutorial/pull/2/files
 
 
 
-####Part 3 : Add a named annotation module to demonstrate the @nAmed annotation.
+#### Part 3 : Add a named annotation module to demonstrate the @nAmed annotation.
 https://github.com/TonyTangAndroid/DaggerTutorial/pull/4/files
 
 1, If you only have one value for the same type of data, you could just provide it without named annotation.
@@ -33,7 +33,7 @@ Please pay attention that if you did not specify the annotation, the default val
 
 
 
-####Part 4 : Add a data, domain and presenter class.
+#### Part 4 : Add a data, domain and presenter class.
 https://github.com/TonyTangAndroid/DaggerTutorial/pull/5/files
 
 Add a data, domain and presenter class to make things a little bit complicated and to demonstrate two potential problems here.
@@ -46,7 +46,7 @@ In the next part, we will use the dagger android module to simplify it.
 
 
 
-####Part 5 : Add a data, domain and presenter class.
+#### Part 5 : Add a data, domain and presenter class.
 https://github.com/TonyTangAndroid/DaggerTutorial/pull/6/files
 
 Add Dagger Android module to simplify the boilerplate code.
@@ -62,7 +62,7 @@ In this commit,
 
 
 
-####Part 6 : Add a ApplicationScope
+#### Part 6 : Add a ApplicationScope
 https://github.com/TonyTangAndroid/DaggerTutorial/pull/7/files
 
 Add a ApplicationScope to create on ApplicationComponent.java, which would make it possible that all provided dependencies will be a singleton in the application level if it has been annotated with @applicationscope.
