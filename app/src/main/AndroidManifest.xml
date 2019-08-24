@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".TutorialApplication"
+        android:name="demo.fragment.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,8 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name="demo.fragment.MyActivity">
+        <activity android:name=".MainActivity" />
+        <activity android:name="demo.fragment.TonyActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

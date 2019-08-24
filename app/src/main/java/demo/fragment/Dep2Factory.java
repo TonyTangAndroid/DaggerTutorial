@@ -1,6 +1,13 @@
 package demo.fragment;
 
+import javax.inject.Inject;
+
 class Dep2Factory {
+
+    @Inject
+    public Dep2Factory() {
+        this.age = 32;
+    }
 
     public int getAge() {
         return age;
@@ -8,11 +15,5 @@ class Dep2Factory {
 
     private int age;
 
-    public Dep2Factory(int age) {
-        this.age = age;
-    }
 
-    public static Dep2Factory newInstance() {
-        return new Dep2Factory(32);
-    }
 }

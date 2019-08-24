@@ -1,5 +1,7 @@
 package demo.fragment;
 
+import javax.inject.Inject;
+
 class Dep1Factory {
 
     public String getName() {
@@ -8,11 +10,10 @@ class Dep1Factory {
 
     private String name;
 
-    public Dep1Factory(String name) {
-        this.name = name;
+    @Inject
+    public Dep1Factory() {
+        this.name = "Tony";
     }
 
-    public static Dep1Factory newInstance() {
-        return new Dep1Factory("tony");
-    }
+
 }

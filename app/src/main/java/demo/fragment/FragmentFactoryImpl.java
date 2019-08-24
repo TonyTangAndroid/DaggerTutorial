@@ -4,25 +4,24 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentFactory;
 
+import javax.inject.Inject;
+import javax.inject.Provider;
+
 public class FragmentFactoryImpl extends FragmentFactory {
 
-    private final Dep1Factory mDep1Factory;
-    private final Dep2Factory mDep2Factory;
+    private final Provider<TonyFragment> fragmentProvider;
 
-    public FragmentFactoryImpl(Dep1Factory dep1Factory,
-                               Dep2Factory dep2Factory) {
-        mDep1Factory = dep1Factory;
-        mDep2Factory = dep2Factory;
+    @Inject
+    public FragmentFactoryImpl(Provider<TonyFragment> fragmentProvider) {
+        this.fragmentProvider = fragmentProvider;
     }
-
 
     @NonNull
     public Fragment instantiate(@NonNull ClassLoader classLoader, @NonNull String className) {
-        Class clazz = loadFragmentClass(classLoader, className);
-
+        Class<? extends Fragment> aClass = loadFragmentClass(classLoader, className);
         Fragment fragment;
-        if (clazz == MyFragment.class) {
-            fragment = new MyFragment(mDep1Factory.newInstance(), mDep2Factory.newInstance());
+        if (aClass == TonyFragment.class) {
+            fragment = fragmentProvider.get();
         } else {
             return super.instantiate(classLoader, className);
         }
