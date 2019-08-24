@@ -1,6 +1,8 @@
 # DaggerTutorial
 A Dagger Tutorial from easiest setup example to the most advance setup examples.
 
+[![Build status](https://build.appcenter.ms/v0.1/apps/4540c16c-9545-4eb5-8005-dca92b85a12c/branches/master/badge)](https://appcenter.ms)
+
 The example has been broke into 9 parts with 9 branches and each part focuses on its primary purpose. And there has been 9 open pull requests which demonstrate the examples step by step. Each pull request is based on the previous commit. So if you want to learn Dagger from scratch, you could start from part_1_minu_setup which has only minimum code related to Dagger. Branch master has all the code including all parts.
 
 (Test 123 456)
