@@ -3,7 +3,7 @@ package com.github.tonytangandroid.daggertutorial;
 import android.app.Service;
 import android.os.Build;
 import android.service.quicksettings.TileService;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 import android.widget.Toast;
 
 import javax.inject.Inject;
