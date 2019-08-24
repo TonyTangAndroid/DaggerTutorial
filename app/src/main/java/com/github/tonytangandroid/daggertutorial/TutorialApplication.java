@@ -1,8 +1,6 @@
 package com.github.tonytangandroid.daggertutorial;
 
-import android.app.Activity;
 import android.app.Application;
-import android.app.Service;
 
 import com.github.tonytangandroid.daggertutorial.dagger.ApplicationComponent;
 import com.github.tonytangandroid.daggertutorial.dagger.DaggerApplicationComponent;
@@ -11,20 +9,16 @@ import javax.inject.Inject;
 
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
-import dagger.android.HasActivityInjector;
-import dagger.android.HasServiceInjector;
+import dagger.android.HasAndroidInjector;
 import timber.log.Timber;
 
 import static android.os.Build.VERSION.SDK_INT;
 import static android.os.Build.VERSION_CODES.N;
 
-public class TutorialApplication extends Application implements HasActivityInjector, HasServiceInjector {
+public class TutorialApplication extends Application implements HasAndroidInjector {
 
     @Inject
-    DispatchingAndroidInjector<Activity> activityDispatchingAndroidInjector;
-    @Inject
-    DispatchingAndroidInjector<Service> serviceDispatchingAndroidInjector;
-
+    DispatchingAndroidInjector<Object> dispatchingAndroidInjector;
 
     @Override
     public void onCreate() {
@@ -32,6 +26,11 @@ public class TutorialApplication extends Application implements HasActivityInjec
         super.onCreate();
         Timber.plant(new Timber.DebugTree());
 
+    }
+
+    @Override
+    public AndroidInjector<Object> androidInjector() {
+        return dispatchingAndroidInjector;
     }
 
     private void initDagger() {
@@ -42,15 +41,4 @@ public class TutorialApplication extends Application implements HasActivityInjec
             component.inject(this);
         }
     }
-
-    @Override
-    public AndroidInjector<Activity> activityInjector() {
-        return activityDispatchingAndroidInjector;
-    }
-
-    @Override
-    public AndroidInjector<Service> serviceInjector() {
-        return serviceDispatchingAndroidInjector;
-    }
-
 }
