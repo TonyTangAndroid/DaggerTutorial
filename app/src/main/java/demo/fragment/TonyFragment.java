@@ -1,5 +1,6 @@
 package demo.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ public class TonyFragment extends Fragment implements TonyFragmentView {
 
     private final SharedPreferences injectedSharedPreferences;
 
+    private final String dynamicParam;
     private final String appName;
 
     private final String sharedPreferenceValue;
@@ -43,6 +45,7 @@ public class TonyFragment extends Fragment implements TonyFragmentView {
     @Inject
     public TonyFragment(Context injectedContext,
                         SharedPreferences injectedSharedPreferences,
+                        @Named("dynamic_param") String dynamicParam,
                         @Named("app_name_from_named_annotation") String appName,
                         @Named("shared_preference_value") String sharedPreferenceValue,
                         String nameWithoutAnnotation,
@@ -52,6 +55,7 @@ public class TonyFragment extends Fragment implements TonyFragmentView {
                         Dep2Factory dep2Factory) {
         this.injectedContext = injectedContext;
         this.injectedSharedPreferences = injectedSharedPreferences;
+        this.dynamicParam = dynamicParam;
         this.appName = appName;
         this.sharedPreferenceValue = sharedPreferenceValue;
         this.nameWithoutAnnotation = nameWithoutAnnotation;
@@ -90,8 +94,9 @@ public class TonyFragment extends Fragment implements TonyFragmentView {
     }
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void showFragmentMessage(String message) {
-        tvMessage.setText("fragment: " + message);
+        tvMessage.setText(dynamicParam + ":" + message);
     }
 }

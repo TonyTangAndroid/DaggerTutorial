@@ -39,4 +39,9 @@ public class TonyActivity extends AppCompatActivity implements TonyActivityView 
     public void showActivityMessage(String message) {
         Toast.makeText(this, "showed message in activity", Toast.LENGTH_SHORT).show();
     }
+
+
+    public String param() {
+        return "message param";
+    }
 }
