@@ -20,7 +20,7 @@ import javax.inject.Named;
 import hugo.weaving.DebugLog;
 
 @DebugLog
-public class TonyFragment extends Fragment implements TonyFragmentView {
+public class EmptyFragment extends Fragment implements TonyFragmentView {
 
     private final Context injectedContext;
 
@@ -41,15 +41,15 @@ public class TonyFragment extends Fragment implements TonyFragmentView {
     private TextView tvMessage;
 
     @Inject
-    public TonyFragment(Context injectedContext,
-                        SharedPreferences injectedSharedPreferences,
-                        @Named("app_name_from_named_annotation") String appName,
-                        @Named("shared_preference_value") String sharedPreferenceValue,
-                        String nameWithoutAnnotation,
-                        TonyFragmentPresenter tonyFragmentPresenter,
-                        boolean debug,
-                        Dep1Factory dep1Factory,
-                        Dep2Factory dep2Factory) {
+    public EmptyFragment(Context injectedContext,
+                         SharedPreferences injectedSharedPreferences,
+                         @Named("app_name_from_named_annotation") String appName,
+                         @Named("shared_preference_value") String sharedPreferenceValue,
+                         String nameWithoutAnnotation,
+                         TonyFragmentPresenter tonyFragmentPresenter,
+                         boolean debug,
+                         Dep1Factory dep1Factory,
+                         Dep2Factory dep2Factory) {
         this.injectedContext = injectedContext;
         this.injectedSharedPreferences = injectedSharedPreferences;
         this.appName = appName;
