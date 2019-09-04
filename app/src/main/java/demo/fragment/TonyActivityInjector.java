@@ -20,6 +20,7 @@ abstract class TonyActivityInjector {
             FragmentFactoryModule.class
     })
     public interface YourActivitySubcomponent extends AndroidInjector<TonyActivity> {
+
         @Subcomponent.Factory
         interface Factory extends AndroidInjector.Factory<TonyActivity> {
 

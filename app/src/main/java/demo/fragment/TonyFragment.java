@@ -30,6 +30,7 @@ public class TonyFragment extends Fragment implements TonyFragmentView {
 
     private final String sharedPreferenceValue;
 
+    private String api;
     private final String nameWithoutAnnotation;
 
     private final TonyFragmentPresenter tonyFragmentPresenter;
@@ -45,6 +46,7 @@ public class TonyFragment extends Fragment implements TonyFragmentView {
                         SharedPreferences injectedSharedPreferences,
                         @Named("app_name_from_named_annotation") String appName,
                         @Named("shared_preference_value") String sharedPreferenceValue,
+                        @Named("api") String api,
                         String nameWithoutAnnotation,
                         TonyFragmentPresenter tonyFragmentPresenter,
                         boolean debug,
@@ -54,6 +56,7 @@ public class TonyFragment extends Fragment implements TonyFragmentView {
         this.injectedSharedPreferences = injectedSharedPreferences;
         this.appName = appName;
         this.sharedPreferenceValue = sharedPreferenceValue;
+        this.api = api;
         this.nameWithoutAnnotation = nameWithoutAnnotation;
         this.tonyFragmentPresenter = tonyFragmentPresenter;
         this.debug = debug;
@@ -85,7 +88,7 @@ public class TonyFragment extends Fragment implements TonyFragmentView {
         tvAppName.setText(appName);
         tvSharedPreference.setText(sharedPreferenceValue);
         tvNameWithoutNamedAnnotation.setText(nameWithoutAnnotation);
-        tvDebug.setText(String.valueOf(debug));
+        tvDebug.setText(debug + ", api:" + api);
         tonyFragmentPresenter.create();
     }
 

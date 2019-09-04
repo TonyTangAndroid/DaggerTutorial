@@ -35,6 +35,13 @@ public class TonyActivity extends AppCompatActivity implements TonyActivityView 
 
     }
 
+
+    private static final String API = "get_student";
+
+    public String api() {
+        return API;
+    }
+
     @Override
     public void showActivityMessage(String message) {
         Toast.makeText(this, "showed message in activity", Toast.LENGTH_SHORT).show();
