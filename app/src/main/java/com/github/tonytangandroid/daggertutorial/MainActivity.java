@@ -36,8 +36,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    mainPresenter.setMainView(this);
-    mainPresenter2.setMainView(this);
     setContentView(R.layout.activity_main);
 
     TextView tvAppName = findViewById(R.id.tv_app_name);
