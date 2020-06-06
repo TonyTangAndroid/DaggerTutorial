@@ -58,7 +58,7 @@ Add Dagger Android module to simplify the boilerplate code which requires to man
 In this commit,
 
 1, We remove the Activity Component that was used to be defined by ourselves.
-2, We remove the exposed interface in the ApplicationComponent.java as it is no longer necessary after we introduce the Dagger Android Module.
+2, We remove the exposed interface in the AppComponent.java as it is no longer necessary after we introduce the Dagger Android Module.
 3, The MainView is initialized together with use case in presenter as we managed to provide the MainView in MainActivityModule before the presenter is injected.
 
 
@@ -67,7 +67,7 @@ In this commit,
 #### Part 6 : Add a ApplicationScope
 https://github.com/TonyTangAndroid/DaggerTutorial/pull/7/files
 
-Add a ApplicationScope to create on ApplicationComponent.java, which would make it possible that all provided dependencies will be a singleton in the application level if it has been annotated with @applicationscope.
+Add a ApplicationScope to create on AppComponent.java, which would make it possible that all provided dependencies will be a singleton in the application level if it has been annotated with @applicationscope.
 
 In DataBindModule.java, we annotated PremiumRepository as ApplicationScope.
 This will mean that PremiumRepository will server as a singleton.
