@@ -4,8 +4,8 @@ import static android.os.Build.VERSION.SDK_INT;
 import static android.os.Build.VERSION_CODES.N;
 
 import android.app.Application;
-import com.github.tonytangandroid.daggertutorial.dagger.ApplicationComponent;
-import com.github.tonytangandroid.daggertutorial.dagger.DaggerApplicationComponent;
+import com.github.tonytangandroid.daggertutorial.dagger.AppComponent;
+import com.github.tonytangandroid.daggertutorial.dagger.DaggerAppComponent;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasAndroidInjector;
@@ -29,7 +29,7 @@ public class TutorialApplication extends Application implements HasAndroidInject
   }
 
   private void initDagger() {
-    ApplicationComponent component = DaggerApplicationComponent.builder().application(this).build();
+    AppComponent component = DaggerAppComponent.builder().application(this).build();
     if (SDK_INT >= N) {
       component.api24OrGreaterServiceComponent().inject(this);
     } else {

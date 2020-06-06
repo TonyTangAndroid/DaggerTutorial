@@ -25,7 +25,7 @@ import dagger.android.AndroidInjectionModule;
       ActivityInjector.class,
       ServiceInjector.class
     })
-public interface ApplicationComponent {
+public interface AppComponent {
 
   QuickTileService.Api24OrGreaterServiceComponent api24OrGreaterServiceComponent();
 
@@ -37,6 +37,6 @@ public interface ApplicationComponent {
     @BindsInstance
     Builder application(Application application);
 
-    ApplicationComponent build();
+    AppComponent build();
   }
 }
