@@ -5,10 +5,11 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import dagger.android.AndroidInjection;
+import dagger.hilt.android.AndroidEntryPoint;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+@AndroidEntryPoint
 public class MainActivity extends AppCompatActivity implements MainView {
 
   @Inject Context injectedContext;
@@ -35,7 +36,8 @@ public class MainActivity extends AppCompatActivity implements MainView {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    AndroidInjection.inject(this);
+    mainPresenter.setMainView(this);
+    mainPresenter2.setMainView(this);
     setContentView(R.layout.activity_main);
 
     TextView tvAppName = findViewById(R.id.tv_app_name);

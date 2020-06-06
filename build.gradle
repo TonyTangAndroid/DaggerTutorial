@@ -6,6 +6,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:4.0.0'
         classpath 'com.jakewharton.hugo:hugo-plugin:1.2.1'
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.28-alpha'
     }
 }
 
@@ -17,6 +18,9 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven {
+            url "https://androidx.dev/snapshots/builds/6543454/artifacts/repository/"
+        }
     }
 }
 
