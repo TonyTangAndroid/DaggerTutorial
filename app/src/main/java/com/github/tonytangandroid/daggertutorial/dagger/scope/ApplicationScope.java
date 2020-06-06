@@ -1,10 +1,9 @@
 package com.github.tonytangandroid.daggertutorial.dagger.scope;
 
-import java.lang.annotation.Retention;
-
-import javax.inject.Scope;
-
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
+
+import java.lang.annotation.Retention;
+import javax.inject.Scope;
 
 @Scope
 @Retention(RUNTIME)
