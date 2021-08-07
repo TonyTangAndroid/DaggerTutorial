@@ -5,10 +5,10 @@ import com.github.tonytangandroid.daggertutorial.PremiumRepository;
 import dagger.Binds;
 import dagger.Module;
 import dagger.hilt.InstallIn;
-import dagger.hilt.components.SingletonComponent;
+import dagger.hilt.android.components.ApplicationComponent;
 
 @Module
-@InstallIn(SingletonComponent.class)
+@InstallIn(ApplicationComponent.class)
 public abstract class DataBindModule {
 
   @Binds
