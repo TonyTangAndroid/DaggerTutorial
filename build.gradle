@@ -1,12 +1,14 @@
 buildscript {
     repositories {
         google()
+        mavenCentral()
+        //noinspection JcenterRepositoryObsolete
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.0.0'
+        classpath 'com.android.tools.build:gradle:4.2.2'
         classpath 'com.jakewharton.hugo:hugo-plugin:1.2.1'
-        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.28-alpha'
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.38.1'
     }
 }
 
@@ -17,10 +19,9 @@ plugins {
 allprojects {
     repositories {
         google()
+        mavenCentral()
+        //noinspection JcenterRepositoryObsolete
         jcenter()
-        maven {
-            url "https://androidx.dev/snapshots/builds/6543454/artifacts/repository/"
-        }
     }
 }
 
@@ -30,8 +31,10 @@ subprojects { project ->
     }
 
     repositories {
-        jcenter()
         google()
+        mavenCentral()
+        //noinspection JcenterRepositoryObsolete
+        jcenter()
     }
 
 }
