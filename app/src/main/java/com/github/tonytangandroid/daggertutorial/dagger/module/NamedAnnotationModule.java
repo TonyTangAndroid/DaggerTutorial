@@ -3,12 +3,9 @@ package com.github.tonytangandroid.daggertutorial.dagger.module;
 import com.github.tonytangandroid.daggertutorial.BuildConfig;
 import dagger.Module;
 import dagger.Provides;
-import dagger.hilt.InstallIn;
-import dagger.hilt.android.components.ApplicationComponent;
 import javax.inject.Named;
 
 @Module
-@InstallIn(ApplicationComponent.class)
 public class NamedAnnotationModule {
 
   @Provides
