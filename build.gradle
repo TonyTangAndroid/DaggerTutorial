@@ -1,10 +1,12 @@
 buildscript {
     repositories {
         google()
+        mavenCentral()
+        //noinspection JcenterRepositoryObsolete
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.0.0'
+        classpath 'com.android.tools.build:gradle:4.2.2'
         classpath 'com.jakewharton.hugo:hugo-plugin:1.2.1'
     }
 }
@@ -16,6 +18,8 @@ plugins {
 allprojects {
     repositories {
         google()
+        mavenCentral()
+        //noinspection JcenterRepositoryObsolete
         jcenter()
     }
 }
@@ -26,8 +30,10 @@ subprojects { project ->
     }
 
     repositories {
-        jcenter()
         google()
+        mavenCentral()
+        //noinspection JcenterRepositoryObsolete
+        jcenter()
     }
 
 }
